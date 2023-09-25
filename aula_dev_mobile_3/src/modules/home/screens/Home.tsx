@@ -5,7 +5,9 @@ import {Card} from '../../../shared/components/card';
 
 const Home = () => {
   const navigation = useNavigation();
-  function changeScreen() {}
+  function changeScreen() {
+    navigation.navigate('Product');
+  }
 
   return (
     <View style={{flex: 1}}>

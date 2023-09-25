@@ -3,7 +3,8 @@ export declare global {
     interface RootParamList {
       Home: undefined;
       Login: undefined;
-      View: undefined;
+      Product: undefined;
+      Cart: undefined;
     }
   }
 }
