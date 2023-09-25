@@ -8,14 +8,16 @@ import {
 } from 'react-native';
 import styled from 'styled-components/native';
 import Login from './modules/login';
+import {Routes} from './routes';
 
 const App = () => {
   const [text, onChangeText] = React.useState('');
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Login></Login>
-    </SafeAreaView>
+    // <SafeAreaView style={styles.container}>
+    //   <Login></Login>
+    // </SafeAreaView>
+    <Routes></Routes>
   );
 };
 

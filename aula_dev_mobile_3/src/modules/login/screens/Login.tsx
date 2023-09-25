@@ -8,9 +8,11 @@ import {
   View,
 } from 'react-native';
 import {useLogin} from '../hooks/useLogin';
+import {useNavigation} from '@react-navigation/native';
 
 const Login = () => {
   const [text, onChangeText] = React.useState('');
+  const navigation = useNavigation();
   const {
     email,
     password,
@@ -18,6 +20,10 @@ const Login = () => {
     handleEmailInput,
     handlePasswordInput,
   } = useLogin();
+
+  function changeScreen() {
+    navigation.navigate('Home');
+  }
 
   return (
     <View style={styles.container}>
@@ -35,7 +41,7 @@ const Login = () => {
         secureTextEntry={true}
         placeholder="Senha"
         onChangeText={onChangeText}></TextInput>
-      <TouchableOpacity style={styles.buttonstyle}>
+      <TouchableOpacity style={styles.buttonstyle} onPress={changeScreen}>
         <Text style={styles.buttontext}>CONFIRMAR</Text>
       </TouchableOpacity>
     </View>

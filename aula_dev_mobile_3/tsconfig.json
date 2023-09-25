@@ -1,6 +1,9 @@
 {
+  "compilerOptions": {
+    "jsx": "react"
+  },
   "extends": "@tsconfig/react-native/tsconfig.json",
   "vueCompilerOptions": {
-    "types":["@types/styled-components-react-native"]
+    "types": ["@types/styled-components-react-native"]
   }
 }
