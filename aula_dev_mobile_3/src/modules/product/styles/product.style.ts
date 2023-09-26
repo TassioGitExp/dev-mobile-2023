@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  conteiner: {
+  container: {
     flex: 1,
     width: '100%',
   },
@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginHorizontal: 24,
   },
-  buttomHeader: {
+  buttonHeader: {
     backgroundColor: '#fff',
     padding: 12,
     alignItems: 'center',

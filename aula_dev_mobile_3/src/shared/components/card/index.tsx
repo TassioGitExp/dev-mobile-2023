@@ -20,10 +20,10 @@ export function Card({...props}: CardProps) {
         source={require('aula_dev_mobile_3/src/assets/mesa.jpeg')}></CardImage>
       <Content>
         <Title>Produto</Title>
-        <Price>$12,34</Price>
-        <Offer>$10,01</Offer>
+        <Price>$10,01</Price>
+        <Offer>$12,34</Offer>
         <Favorite>
-          <Icon name={'times'} size={18} color="#fdf4f4"></Icon>
+          <Icon name={'times'} size={16} color="#fdf4f4"></Icon>
         </Favorite>
       </Content>
     </CardContainer>

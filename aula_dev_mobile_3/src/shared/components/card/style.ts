@@ -9,7 +9,7 @@ export const CardContainer = styled.TouchableOpacity`
   width: 100%;
   height: 20%;
   border-radius: 5px;
-  background-color: #bbbaba;
+  background-color: #dedcdc;
   padding: 5px;
   flex-direction: row;
 `;
@@ -26,12 +26,12 @@ export const Title = styled.Text`
   font-size: 18px;
   font-weight: 600;
   flex-shrink: 1;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
 `;
 
 export const Price = styled.Text`
   color: #1f1d1d;
-  font-size: 26px;
+  font-size: 44px;
   font-weight: 800;
 `;
 
@@ -43,9 +43,15 @@ export const Offer = styled.Text`
 `;
 
 export const Favorite = styled.TouchableOpacity`
-  width: 10%;
+  width: 15%;
   height: 15%;
+  border-radius: 100px;
   position: absolute;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
   top: 2%;
   right: 2%;
+  background-color: #424242;
 `;

@@ -5,18 +5,18 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const Product = () => {
   return (
-    <View style={styles.conteiner}>
+    <View style={styles.container}>
       <ImageBackground
         style={styles.header}
         source={require('aula_dev_mobile_3/src/assets/mesa.jpeg')}
         imageStyle={styles.img}>
         <View style={styles.row}>
-          <TouchableOpacity style={styles.buttomHeader}>
-            <Icon name={'home'} size={22}></Icon>
+          <TouchableOpacity style={styles.buttonHeader}>
+            <Icon name={'chevron-left'} size={22}></Icon>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.buttomHeader}>
-            <Icon name={'home'} size={22}></Icon>
+          <TouchableOpacity style={styles.buttonHeader}>
+            <Icon name={'chevron-right'} size={22}></Icon>
           </TouchableOpacity>
         </View>
       </ImageBackground>
