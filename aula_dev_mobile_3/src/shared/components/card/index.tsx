@@ -1,4 +1,4 @@
-import {TouchableOpacityProps} from 'react-native';
+import {Text, TouchableOpacityProps} from 'react-native';
 import {
   CardContainer,
   CardImage,
@@ -10,20 +10,25 @@ import {
 } from './style';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 
-interface CardProps extends TouchableOpacityProps {}
+interface CardProps extends TouchableOpacityProps {
+  title: string;
+  price: string;
+  offer: string;
+  image: string;
+}
 
-export function Card({...props}: CardProps) {
+export function Card({...props}) {
   return (
     <CardContainer {...props}>
-      <CardImage
-        source={require('aula_dev_mobile_3/src/assets/mesa.jpeg')}></CardImage>
+      <CardImage source={props.image}></CardImage>
       <Content>
-        <Title>Produto</Title>
-        <Price>$10,01</Price>
-        <Offer>$12,34</Offer>
+        <Title>{props.title}</Title>
+        <Offer>R$ {props.offer}</Offer>
+        <Price>R$ {props.price}</Price>
         <Favorite>
-          <Icon name={'times'} size={16} color="#fdf4f4"></Icon>
+          <Icon name={'heart'} size={14} color="#fdf4f4" solid></Icon>
         </Favorite>
       </Content>
     </CardContainer>

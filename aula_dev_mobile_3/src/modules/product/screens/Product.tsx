@@ -2,13 +2,24 @@ import React from 'react';
 import {styles} from '../styles/product.style';
 import {View, ImageBackground, TouchableOpacity, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import {
+  ParamListBase,
+  Route,
+  RouteConfig,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
+import {NavigationAction} from 'react-navigation';
+import {StackScreenProps} from '@react-navigation/stack';
+import {MyStackParamList} from '../../../@types/types';
 
 const Product = () => {
+  const route = useRoute();
   return (
     <View style={styles.container}>
       <ImageBackground
         style={styles.header}
-        source={require('aula_dev_mobile_3/src/assets/mesa.jpeg')}
+        source={route.params.image}
         imageStyle={styles.img}>
         <View style={styles.row}>
           <TouchableOpacity style={styles.buttonHeader}>
@@ -22,7 +33,7 @@ const Product = () => {
       </ImageBackground>
 
       <View style={styles.body}>
-        <Text style={styles.nameProduct}>Produto</Text>
+        <Text style={styles.nameProduct}>{route.params.name}</Text>
 
         <View style={styles.rowBody}>
           <Text style={styles.rate}>Avaliação</Text>
@@ -50,7 +61,7 @@ const Product = () => {
       <View style={styles.footer}>
         <View>
           <Text style={styles.titlePrice}>Preço</Text>
-          <Text style={styles.price}>$12,34</Text>
+          <Text style={styles.price}>R$ {route.params.promo}</Text>
         </View>
         <TouchableOpacity style={styles.btnCard}>
           <Text style={styles.btnCardText}>Adicionar ao carrinho</Text>

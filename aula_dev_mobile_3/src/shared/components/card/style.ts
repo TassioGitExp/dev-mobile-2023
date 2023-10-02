@@ -6,12 +6,13 @@ export const Content = styled.View`
 `;
 
 export const CardContainer = styled.TouchableOpacity`
-  width: 100%;
-  height: 20%;
-  border-radius: 5px;
+  width: 95%;
+  height: auto;
+  border-radius: 12px;
   background-color: #dedcdc;
   padding: 5px;
   flex-direction: row;
+  margin-top: 10px;
 `;
 
 export const CardImage = styled.Image.attrs({
@@ -29,13 +30,13 @@ export const Title = styled.Text`
   margin-bottom: 2%;
 `;
 
-export const Price = styled.Text`
+export const Offer = styled.Text`
   color: #1f1d1d;
-  font-size: 44px;
+  font-size: 34px;
   font-weight: 800;
 `;
 
-export const Offer = styled.Text`
+export const Price = styled.Text`
   color: #d6333e;
   font-size: 18px;
   font-weight: 500;
@@ -43,14 +44,15 @@ export const Offer = styled.Text`
 `;
 
 export const Favorite = styled.TouchableOpacity`
-  width: 15%;
-  height: 15%;
+  width: 24px;
+  height: 24px;
   border-radius: 100px;
+  border-width: 2px;
   position: absolute;
   justify-content: center;
   align-items: center;
-  padding: 0;
-  margin: 0;
+  padding: 2px;
+  margin: 0px;
   top: 2%;
   right: 2%;
   background-color: #424242;

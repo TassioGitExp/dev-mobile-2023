@@ -9,25 +9,16 @@ import {
 import styled from 'styled-components/native';
 import Login from './modules/login';
 import {Routes} from './routes';
+import {createStackNavigator} from '@react-navigation/stack';
+import Home from './modules/home';
+import Product from './modules/product';
+import Cart from './modules/cart';
+import {NavigationContainer} from '@react-navigation/native';
+
+const Stack = createStackNavigator();
 
 const App = () => {
-  const [text, onChangeText] = React.useState('');
-
-  return (
-    // <SafeAreaView style={styles.container}>
-    //   <Login></Login>
-    // </SafeAreaView>
-    <Routes></Routes>
-  );
+  return <Routes />;
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    padding: 4,
-    backgroundColor: 'lightgray',
-  },
-});
 
 export default App;
