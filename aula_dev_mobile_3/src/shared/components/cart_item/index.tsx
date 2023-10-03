@@ -18,8 +18,10 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
+import {removeItemFromCart} from '../../../modules/cart/screens/Cart';
 
 interface CardProps extends TouchableOpacityProps {
+  id: string;
   title: string;
   price: string;
   offer: string;
@@ -44,7 +46,7 @@ export function CartItem({...props}) {
         </AmountButtonsView>
       </Details>
       <Content>
-        <DeleteButton>
+        <DeleteButton onPress={() => removeItemFromCart(props.id)}>
           <DeleteButtonText>X</DeleteButtonText>
         </DeleteButton>
       </Content>
