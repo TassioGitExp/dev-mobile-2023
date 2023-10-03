@@ -7,7 +7,7 @@ export const Content = styled.View`
 
 export const CardContainer = styled.TouchableOpacity`
   width: 95%;
-  height: auto;
+  height: 130px;
   border-radius: 12px;
   background-color: #dedcdc;
   padding: 5px;

@@ -36,14 +36,14 @@ const Cart = () => {
     <>
       <SafeAreaView style={styles.container}>
         <View style={styles.content}>
-          <View style={styles.header}>
+          {/* <View style={styles.header}>
             <Text style={styles.headerTitle}>Carrinho</Text>
             <TouchableOpacity style={styles.backButton} onPress={changeScreen}>
               <Text style={{fontSize: 40, fontWeight: 'bold', marginTop: -25}}>
                 ←
               </Text>
             </TouchableOpacity>
-          </View>
+          </View> */}
           <View style={styles.body}>
             {cartItem.length > 0 ? (
               <FlatList

@@ -9,11 +9,9 @@ import {
   useNavigation,
   useRoute,
 } from '@react-navigation/native';
-import {NavigationAction} from 'react-navigation';
-import {StackScreenProps} from '@react-navigation/stack';
-import {MyStackParamList} from '../../../@types/types';
 
 const Product = () => {
+  const navigation = useNavigation();
   const route = useRoute();
   return (
     <View style={styles.container}>
@@ -63,7 +61,18 @@ const Product = () => {
           <Text style={styles.titlePrice}>Preço</Text>
           <Text style={styles.price}>R$ {route.params.promo}</Text>
         </View>
-        <TouchableOpacity style={styles.btnCard}>
+        <TouchableOpacity
+          style={styles.btnCard}
+          onPress={() =>
+            navigation.navigate('Cart', {
+              id: route.params.id,
+              name: route.params.name,
+              description: route.params.description,
+              image: route.params.image,
+              price: route.params.price,
+              promo: route.params.promo,
+            })
+          }>
           <Text style={styles.btnCardText}>Adicionar ao carrinho</Text>
         </TouchableOpacity>
       </View>

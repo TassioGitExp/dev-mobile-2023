@@ -1,3 +1,3 @@
-import Cart from './screens/index';
+import Cart from './screens/Cart';
 
 export default Cart;
