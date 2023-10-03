@@ -21,16 +21,16 @@ interface Product {
   price: string;
   promo: string;
 }
+//const [products, setProducts] = useState<Product[]>([]);
 
 const images = {
   mesa1: require('../../../assets/mesa.jpeg'),
   // mesa1: require('../../../assets/mesa.jpeg'),
 };
 
-const [products, setProducts] = useState<Product[]>([]);
-
 export function removeItemFromCart(id: string) {
-  products.splice(parseInt(id) - 1, 1);
+  //products.splice(parseInt(id) - 1, 1);
+  console.log(id);
 }
 
 const Cart = () => {
@@ -45,6 +45,9 @@ const Cart = () => {
     price: route.params.price,
     promo: route.params.promo,
   };
+
+ const [products, setProducts] = useState<Product[]>([]);
+
 
   // const storeData = async (value: any) => {
   //   try {

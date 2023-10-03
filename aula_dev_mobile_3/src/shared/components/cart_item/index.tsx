@@ -45,7 +45,7 @@ export function CartItem({...props}) {
           </AmountButton>
         </AmountButtonsView>
       </Details>
-      <Content>
+      <Content style={{justifyContent: 'flex-end'}}>
         <DeleteButton onPress={() => removeItemFromCart(props.id)}>
           <DeleteButtonText>X</DeleteButtonText>
         </DeleteButton>

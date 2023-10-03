@@ -5,6 +5,7 @@ export declare global {
       Login: undefined;
       Product: undefined;
       Cart: undefined;
+      Profile: undefined;
     }
   }
 }
