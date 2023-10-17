@@ -10,20 +10,22 @@ import {
 import {useLogin} from '../hooks/useLogin';
 import {useNavigation} from '@react-navigation/native';
 
-const Login = async () => {
+const Login = () => {
   const [text, onChangeText] = React.useState('');
   const navigation = useNavigation();
   const {
     email,
     password,
     handleOnPress,
+    authLogin,
     handleEmailInput,
     handlePasswordInput,
-    resultLogin,
-  } = await useLogin();
+  } = useLogin();
 
-  function changeScreen() {
-    navigation.navigate('Home');
+  async function changeScreen() {
+    const login = await authLogin();
+    console.log(login)
+    //navigation.navigate('Home');
   }
 
   return (
@@ -42,7 +44,7 @@ const Login = async () => {
         secureTextEntry={true}
         placeholder="Senha"
         onChangeText={onChangeText}></TextInput>
-      <TouchableOpacity style={styles.buttonstyle} onPress={() => resultLogin}>
+      <TouchableOpacity style={styles.buttonstyle} onPress={changeScreen}>
         <Text style={styles.buttontext}>CONFIRMAR</Text>
       </TouchableOpacity>
     </View>
