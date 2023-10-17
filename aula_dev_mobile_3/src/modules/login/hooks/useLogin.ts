@@ -1,7 +1,8 @@
+import axios from 'axios';
 import {useState} from 'react';
 import {NativeSyntheticEvent, TextInputFocusEventData} from 'react-native';
 
-export const useLogin = () => {
+export const useLogin = async () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -21,11 +22,19 @@ export const useLogin = () => {
     setPassword(event.nativeEvent.text);
   };
 
+  const resultLogin = await axios.post('http://192.168.137.49:8080/auth', {
+    email,
+    password,
+  }).then( res => {
+    console.log(res.data);
+  }).catch((err)=>{console.log(err)})
+
   return {
     email,
     password,
     handleOnPress,
     handleEmailInput,
     handlePasswordInput,
+    resultLogin,
   };
 };

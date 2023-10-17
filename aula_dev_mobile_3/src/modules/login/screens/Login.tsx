@@ -10,7 +10,7 @@ import {
 import {useLogin} from '../hooks/useLogin';
 import {useNavigation} from '@react-navigation/native';
 
-const Login = () => {
+const Login = async () => {
   const [text, onChangeText] = React.useState('');
   const navigation = useNavigation();
   const {
@@ -19,7 +19,8 @@ const Login = () => {
     handleOnPress,
     handleEmailInput,
     handlePasswordInput,
-  } = useLogin();
+    resultLogin,
+  } = await useLogin();
 
   function changeScreen() {
     navigation.navigate('Home');
@@ -41,7 +42,7 @@ const Login = () => {
         secureTextEntry={true}
         placeholder="Senha"
         onChangeText={onChangeText}></TextInput>
-      <TouchableOpacity style={styles.buttonstyle} onPress={changeScreen}>
+      <TouchableOpacity style={styles.buttonstyle} onPress={() => resultLogin}>
         <Text style={styles.buttontext}>CONFIRMAR</Text>
       </TouchableOpacity>
     </View>
