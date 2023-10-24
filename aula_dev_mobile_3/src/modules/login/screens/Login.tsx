@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import {useLogin} from '../hooks/useLogin';
 import {useNavigation} from '@react-navigation/native';
+import axios, {HttpStatusCode} from 'axios';
 
 const Login = () => {
   const [text, onChangeText] = React.useState('');
@@ -24,8 +25,14 @@ const Login = () => {
 
   async function changeScreen() {
     const login = await authLogin();
-    console.log(login)
-    //navigation.navigate('Home');
+
+    if (login[1] >= 200 && login[1] <= 299) {
+      console.log(login);
+      navigation.navigate('Home');
+    } else {
+      console.log('invalid email or password');
+    }
+    // console.log(login);
   }
 
   return (
@@ -33,12 +40,14 @@ const Login = () => {
       <Text style={styles.textstyle}>LOGIN</Text>
       <TextInput
         value={email}
+        // value="root@root.com"
         onChange={handleEmailInput}
         style={styles.formstyle}
         placeholder="Email"
         onChangeText={onChangeText}></TextInput>
       <TextInput
         value={password}
+        // value="abc"
         onChange={handlePasswordInput}
         style={styles.formstyle}
         secureTextEntry={true}

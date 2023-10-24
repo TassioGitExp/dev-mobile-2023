@@ -5,21 +5,30 @@ import {NativeSyntheticEvent, TextInputFocusEventData} from 'react-native';
 export const useLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  
 
   const authLogin = async () => {
-    const resultLogin = await axios.post('http://192.168.137.49:8080/auth', {
-      email,
-      password,
-    }).then( res => {
-      console.log(res.data);
-    }).catch((err)=>{console.log(err)})
+    try {
+      const {data, status} = await axios.post(
+        'http://192.168.10.162:8080/auth',
+        {
+          email: {email}.email,
+          password: {password}.password,
+        },
+      );
 
-    return resultLogin;
-  }
+      // console.log(JSON.stringify(data));
+      return [data.accessToken, status];
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.log(error);
+        return error.message;
+      } else {
+        console.log('unexpected error: ', error);
+        return 'An unexpected error occurred';
+      }
+    }
+  };
 
-
-  
   const handleOnPress = () => {
     console.log(`Email: ${email}\nPassword: ${password}`);
   };
@@ -35,7 +44,6 @@ export const useLogin = () => {
   ) => {
     setPassword(event.nativeEvent.text);
   };
-  
 
   return {
     email,
