@@ -3,9 +3,11 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {styles} from '../styles/profile.style';
 import {useNavigation} from '@react-navigation/native';
+import {useAppSelector} from '../../../store/hooks/useAppSelector';
 
 const Profile = () => {
   const [containerSize, setContainerSize] = React.useState<number>();
+  const {user} = useAppSelector(store => store.user.user);
 
   const navigation = useNavigation();
 
@@ -19,8 +21,8 @@ const Profile = () => {
         <Icon name={'user'} size={containerSize} color={'#1f1d1d'}></Icon>
       </View>
       <View>
-        <Text style={styles.userInfo}>Username</Text>
-        <Text style={styles.userHandle}>@user12345</Text>
+        <Text style={styles.userInfo}>{user.email}</Text>
+        <Text style={styles.userHandle}>@{user.name}</Text>
       </View>
       <View style={styles.userSettings}>
         <TouchableOpacity style={styles.userSettingsButton}>

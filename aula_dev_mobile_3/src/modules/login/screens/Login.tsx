@@ -25,14 +25,10 @@ const Login = () => {
 
   async function changeScreen() {
     const login = await authLogin();
+    console.log(login);
 
-    if (login[1] >= 200 && login[1] <= 299) {
-      console.log(login);
+    if (login.accessToken != null || login.accessToken != undefined)
       navigation.navigate('Home');
-    } else {
-      console.log('invalid email or password');
-    }
-    // console.log(login);
   }
 
   return (

@@ -8,8 +8,8 @@ import {
 } from 'react-native';
 import styled from 'styled-components/native';
 import Login from './modules/login';
-import {Provider} from 'react-redux'
-import {Store} from './redux/store/index.js'
+import {Provider} from 'react-redux';
+import {store} from './store';
 import {Routes} from './routes';
 import {createStackNavigator} from '@react-navigation/stack';
 import Home from './modules/home';
@@ -20,9 +20,11 @@ import {NavigationContainer} from '@react-navigation/native';
 const Stack = createStackNavigator();
 
 const App = () => {
-  return <Provider store={Store}>
-    <Routes />
-    <Provider/>;
+  return (
+    <Provider store={store}>
+      <Routes />
+    </Provider>
+  );
 };
 
 export default App;
