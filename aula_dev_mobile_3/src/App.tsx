@@ -19,6 +19,10 @@ import {NavigationContainer} from '@react-navigation/native';
 
 const Stack = createStackNavigator();
 
+//TODO: Salvar token em async storage
+//TODO: Usar token para fazer login
+//TODO: Verificar se token é valido
+
 const App = () => {
   return (
     <Provider store={store}>

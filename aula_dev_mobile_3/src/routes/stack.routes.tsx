@@ -5,14 +5,22 @@ import React from 'react';
 import Product from '../modules/product';
 import Cart from '../modules/cart';
 import Profile from '../modules/profile';
-import {Button, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import styled from 'styled-components';
 import {useNavigation} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {HeaderBackButton} from '@react-navigation/elements';
 
 const Stack = createStackNavigator();
 
 export function StackNavigator() {
   const navigation = useNavigation();
+
+  const resetToken = async () => {
+    await AsyncStorage.removeItem('accessToken');
+    navigation.navigate('Login');
+  };
+
   return (
     <Stack.Navigator>
       <Stack.Group screenOptions={{headerTintColor: '#1f1d1d'}}>
@@ -28,6 +36,7 @@ export function StackNavigator() {
                 <Text style={styles.profileButtonText}>Profile</Text>
               </TouchableOpacity>
             ),
+            headerLeft: () => <HeaderBackButton onPress={() => resetToken()} />,
           }}
         />
         <Stack.Screen name="Profile" component={Profile} />

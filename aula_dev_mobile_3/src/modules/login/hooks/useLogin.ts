@@ -6,6 +6,7 @@ import {useAppDispatch} from '../../../store/hooks/useAppDispatch';
 import {useAppSelector} from '../../../store/hooks/useAppSelector';
 import {userSlice} from '../../../store/userReducer/userSlice';
 import {setUserAction} from '../../../store/userReducer/userAction';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export type UserDetails = {
   id: number;
@@ -32,11 +33,12 @@ export const useLogin = () => {
   const authLogin = async () => {
     try {
       await axios
-        .post('http://192.168.10.159:8080/auth', {
+        .post('http://192.168.10.118:8080/auth', {
           email: {email}.email,
           password: {password}.password,
         })
         .then(result => {
+          AsyncStorage.setItem('accessToken', result.data.accessToken);
           dispatch(setUserAction(result.data));
         });
 
