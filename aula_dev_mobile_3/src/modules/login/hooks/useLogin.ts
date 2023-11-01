@@ -51,8 +51,8 @@ export const useLogin = () => {
         console.log(error);
         return error.message;
       } else {
-        console.log('unexpected error: ', error);
-        return 'An unexpected error occurred';
+        console.log('LOGIN ERROR - unexpected error: ', error);
+        return 'LOGIN ERROR - An unexpected error occurred';
       }
     }
   };
