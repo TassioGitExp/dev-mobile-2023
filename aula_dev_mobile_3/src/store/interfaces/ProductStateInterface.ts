@@ -1,3 +1,4 @@
 export interface ProductState {
-  product?: [];
+  // product?: [];
+  product?: any;
 }

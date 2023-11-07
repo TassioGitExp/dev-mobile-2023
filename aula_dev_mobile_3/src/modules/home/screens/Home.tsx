@@ -14,8 +14,8 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import {NavigationAction, NavigationComponent} from 'react-navigation';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {
-  ProductDetails,
-  productList,
+  // ProductDetails,
+  // productList,
   productListInterface,
   useProduct,
 } from '../hooks/useProduct';
@@ -43,9 +43,9 @@ const Home = () => {
   const getProductList = async () => {
     const values = await AsyncStorage.getItem('productList');
 
-    const parsedData = JSON.parse(values);
+    const parsedData = JSON.parse(values || '');
 
-    const selectedAttributes = parsedData.map(item => ({
+    const selectedAttributes = parsedData.map((item: any) => ({
       category: item.category,
       id: item.id,
       name: item.name,

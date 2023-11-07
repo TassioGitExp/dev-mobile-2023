@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {styles} from '../styles/product.style';
 import {View, ImageBackground, TouchableOpacity, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -9,10 +9,22 @@ import {
   useNavigation,
   useRoute,
 } from '@react-navigation/native';
+import {productInterface, useProduct} from '../../home/hooks/useProduct';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useAppSelector} from '../../../store/hooks/useAppSelector';
+import {store} from '../../../store';
 
 const Product = () => {
   const navigation = useNavigation();
-  const route = useRoute();
+  const route: any = useRoute();
+  const {addProductToCart, getProductById} = useProduct();
+
+  const addToCart = async () => {
+    await addProductToCart(route.params.id, 1);
+
+    navigation.navigate('Cart');
+  };
+
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -31,7 +43,9 @@ const Product = () => {
       </ImageBackground>
 
       <View style={styles.body}>
-        <Text style={styles.nameProduct}>{route.params.name}</Text>
+        <Text style={styles.nameProduct}>
+          {route.params.name} ID: {route.params.id}
+        </Text>
 
         <View style={styles.rowBody}>
           <Text style={styles.rate}>Avaliação</Text>
@@ -63,16 +77,19 @@ const Product = () => {
         </View>
         <TouchableOpacity
           style={styles.btnCard}
-          onPress={() =>
-            navigation.navigate('Cart', {
-              id: route.params.id,
-              name: route.params.name,
-              description: route.params.description,
-              image: route.params.image,
-              price: route.params.price,
-              promo: route.params.promo,
-            })
-          }>
+          // onPress={() =>
+          //   navigation.navigate('Cart', {
+          //     id: route.params.id,
+          //     name: route.params.name,
+          //     description: route.params.description,
+          //     image: route.params.image,
+          //     price: route.params.price,
+          //     promo: route.params.promo,
+          //   })
+          // }
+          onPress={() => {
+            addToCart();
+          }}>
           <Text style={styles.btnCardText}>Adicionar ao carrinho</Text>
         </TouchableOpacity>
       </View>

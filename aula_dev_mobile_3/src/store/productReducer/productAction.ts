@@ -1,3 +1,3 @@
 import {productSlice} from './productSlice';
 
-export const {getAllProductsAction} = productSlice.actions;
+export const {getAllProductsAction, setProductAction} = productSlice.actions;

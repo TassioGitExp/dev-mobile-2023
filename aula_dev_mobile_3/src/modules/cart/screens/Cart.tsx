@@ -35,7 +35,7 @@ export function removeItemFromCart(id: string) {
 
 const Cart = () => {
   const navigation = useNavigation();
-  const route = useRoute();
+  const route: any = useRoute();
 
   const product: Product = {
     id: route.params.id,
@@ -46,8 +46,7 @@ const Cart = () => {
     promo: route.params.promo,
   };
 
- const [products, setProducts] = useState<Product[]>([]);
-
+  const [products, setProducts] = useState<Product[]>([]);
 
   // const storeData = async (value: any) => {
   //   try {
